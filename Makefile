@@ -77,10 +77,8 @@ aws-sdk-model-override:
 
 # Push the docker image
 docker-push:
-	docker buildx build . --target bin \
-        		--tag $(IMG) \
-        		--push \
-        		--platform linux/amd64,linux/arm64
+	docker build . -t $(IMG)
+	docker push $(IMG)
 
 # find or download controller-gen
 # download controller-gen if necessary
